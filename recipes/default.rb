@@ -92,6 +92,14 @@ template '/etc/apt/apt.conf.d/10recommends' do
   only_if { apt_installed? }
 end
 
-package %w(apt-transport-https gnupg dirmngr) do
+package 'apt-transport-https' do
+  only_if { apt_installed? }
+end
+
+package 'gnupg' do
+  only_if { apt_installed? }
+end
+
+package 'dirmngr' do
   only_if { apt_installed? }
 end
